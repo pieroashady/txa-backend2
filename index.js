@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3001;
 const app = express();
 const cors = require('cors');
 
@@ -68,4 +68,4 @@ app.get('/api/trainee/total', TraineeController.totalTrainee);
 
 app.get('/api/trainee-list', AdminController.getTrainee);
 
-app.listen(port, () => 'App is listening on your server with port ' + port);
+app.listen(port, () => console.log('App is listening on your server with port ' + port));
