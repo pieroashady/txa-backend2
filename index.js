@@ -11,6 +11,14 @@ const TraineeController = require('./controllers/TraineeController');
 const ContentController = require('./controllers/ContentController');
 const ScoreController = require('./controllers/ScoreController');
 
+app.all('*', (req, res, next) => {
+	var origin = req.get('origin');
+	res.header('Access-Control-Allow-Origin', origin);
+	res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
+	next();
+});
+
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
