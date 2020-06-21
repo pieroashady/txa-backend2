@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 const app = express();
 const cors = require('cors');
 
@@ -60,6 +60,6 @@ app.get('/api/trainee/total', TraineeController.totalTrainee);
 
 app.get('/api/trainee-list', AdminController.getTrainee);
 
-app.listen(port, '192.168.0.118');
+app.listen(port);
 
 console.log('App is listening on your server with port ' + port);
