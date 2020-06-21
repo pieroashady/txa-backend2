@@ -68,6 +68,4 @@ app.get('/api/trainee/total', TraineeController.totalTrainee);
 
 app.get('/api/trainee-list', AdminController.getTrainee);
 
-app.listen(port);
-
-console.log('App is listening on your server with port ' + port);
+app.listen(port, () => 'App is listening on your server with port ' + port);
