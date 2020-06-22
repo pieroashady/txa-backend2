@@ -32,7 +32,7 @@ class ContentController {
 	}
 
 	static async getContentTomorrow(req, res) {
-		const Category = Parse.Object.extend('Content');
+		const Category = Parse.Object.extend('BootcampEvent');
 		//const query = new Parse.Query(Category);
 		const batch = parseInt(req.body.batch);
 
