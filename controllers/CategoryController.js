@@ -22,13 +22,30 @@ class CategoryController {
 
 	static async getCategoryByBatch(req, res) {
 		const Category = Parse.Object.extend('QuizCategory');
-		const query = new Parse.Query(Category);
+		//const query = new Parse.Query(Category);
+		const batch = parseInt(req.body.batch);
+		const today = new Date();
+		const today1 = new Date() + 1;
 
-		query.containedIn('batch', [ 2 ]);
-		const results = await query.find();
+		var d = new Date();
+		var query = new Parse.Query(Category);
 
-		if (_.isEmpty(results)) return res.json({ status: 0, message: 'No data found' });
-		return res.json(results);
+		var start = new moment(d);
+		start.startOf('day');
+		// from the start of the date (inclusive)
+		query.greaterThanOrEqualTo('createdAt', start.toDate());
+
+		var finish = new moment(start);
+		finish.add(1, 'day');
+		// till the start of tomorrow (non-inclusive)
+		query.lessThan('createdAt', finish.toDate());
+		query.containedIn('batch', [ batch ]);
+		query
+			.find()
+			.then(function(results) {
+				res.json(results);
+			})
+			.catch((err) => res.json(err));
 	}
 
 	static async getTotalCategory(req, res) {
