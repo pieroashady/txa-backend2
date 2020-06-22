@@ -24,8 +24,6 @@ class CategoryController {
 		const Category = Parse.Object.extend('QuizCategory');
 		//const query = new Parse.Query(Category);
 		const batch = parseInt(req.body.batch);
-		const today = new Date();
-		const today1 = new Date() + 1;
 
 		var d = new Date();
 		var query = new Parse.Query(Category);
