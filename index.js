@@ -57,6 +57,7 @@ app.post('/api/category/add', CategoryController.addCategory);
 app.post('/api/category/update', CategoryController.updateCategory);
 app.post('/api/category/delete', CategoryController.deleteCategory);
 app.get('/api/category/total', CategoryController.getTotalCategory);
+app.post('/api/category/total-batch', CategoryController.getTotalCategoryPerBatch);
 
 app.get('/api/trainee/list', TraineeController.getTraineeList);
 app.post('/api/trainee/id', TraineeController.getTraineeById);

@@ -55,6 +55,17 @@ class CategoryController {
 		query.count().then((x) => res.json(x)).catch((error) => res.json(error));
 	}
 
+	static async getTotalCategoryPerBatch(req, res) {
+		const Category = Parse.Object.extend('QuizCategory');
+		const query = new Parse.Query(Category);
+
+		const batch = parseInt(req.body.batch);
+
+		query.containedIn('batch', [ batch ]);
+		query.equalTo('status', 1);
+		query.count().then((x) => res.json(x)).catch((error) => res.json(error));
+	}
+
 	static async addCategory(req, res) {
 		const Category = Parse.Object.extend('QuizCategory');
 		const category = new Category();
