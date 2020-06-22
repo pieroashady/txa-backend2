@@ -32,12 +32,12 @@ class CategoryController {
 		start.startOf('day');
 		console.log(start);
 		// from the start of the date (inclusive)
-		query.greaterThanOrEqualTo('createdAt', start.toDate());
+		query.greaterThanOrEqualTo('createdAt', new Date());
 
-		var finish = new moment(start);
-		finish.add(1, 'day');
+		// var finish = new moment(start);
+		// finish.add(1, 'day');
 		// till the start of tomorrow (non-inclusive)
-		query.lessThan('createdAt', finish.toDate());
+		//query.lessThan('createdAt', finish.toDate());
 		query.containedIn('batch', [ batch ]);
 		query
 			.find()
