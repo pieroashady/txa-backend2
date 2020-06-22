@@ -53,6 +53,7 @@ app.post('/api/quiz/update', QuizController.updateQuiz);
 app.post('/api/quiz/delete', QuizController.deleteQuiz);
 
 app.get('/api/category/list', CategoryController.getCategory);
+app.post('/api/category/list-batch', CategoryController.getListCategory);
 app.post('/api/category/batch', CategoryController.getCategoryByBatch);
 app.post('/api/category/id', CategoryController.getCategoryById);
 app.post('/api/category/add', CategoryController.addCategory);
