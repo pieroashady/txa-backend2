@@ -30,6 +30,7 @@ class CategoryController {
 
 		var start = new moment(d);
 		start.startOf('day');
+		console.log(start);
 		// from the start of the date (inclusive)
 		query.greaterThanOrEqualTo('createdAt', start.toDate());
 
