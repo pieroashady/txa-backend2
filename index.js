@@ -28,6 +28,7 @@ app.get('/hello', (req, res) => {
 });
 
 app.post('/api/score/user', ScoreController.getScoreByUser);
+app.post('/api/score/total', ScoreController.totalQuiz);
 app.post('/api/score/id', ScoreController.getScoreById);
 app.post('/api/score/add', ScoreController.addScore);
 app.get('/api/score/percentage', ScoreController.scorePercentage);
@@ -39,6 +40,7 @@ app.post('/api/join', AdminController.joinChatbot);
 
 app.get('/api/content/list', ContentController.getContent);
 app.post('/api/content/id', ContentController.getContentById);
+app.get('/api/content/upcoming', ContentController.getContentTomorrow);
 app.post('/api/content/delete', ContentController.deleteContent);
 app.get('/api/content/total', ContentController.getTotalContent);
 

@@ -31,6 +31,33 @@ class ContentController {
 		query.count().then((x) => res.json(x)).catch((error) => res.json(error));
 	}
 
+	static async getContentTomorrow(req, res) {
+		const Category = Parse.Object.extend('Content');
+		//const query = new Parse.Query(Category);
+		const batch = parseInt(req.body.batch);
+
+		var d = new Date();
+		var query = new Parse.Query(Category);
+
+		var start = new moment(d);
+		start.startOf('day');
+		console.log(start);
+		// from the start of the date (inclusive)
+		query.greaterThanOrEqualTo('schedule', start.toDate());
+
+		// var finish = new moment(start);
+		// finish.add(1, 'day');
+		// till the start of tomorrow (non-inclusive)
+		//query.lessThan('createdAt', finish.toDate());
+		//query.containedIn('batch', [ batch ]);
+		query
+			.count()
+			.then(function(results) {
+				res.json(results);
+			})
+			.catch((err) => res.json(err));
+	}
+
 	static async getContentByType(req, res) {
 		const Content = Parse.Object.extend('BootcampEvent');
 		const query = new Parse.Query(Content);

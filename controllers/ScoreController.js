@@ -120,6 +120,20 @@ class ScoreController {
 		query.find().then((result) => res.json(result)).catch((error) => res.json(error));
 	}
 
+	static async totalQuiz(req, res) {
+		const Score = Parse.Object.extend('Score');
+		const trainee = new Parse.User();
+		const query = new Parse.Query(Score);
+
+		const userId = req.body.userId;
+		trainee.id = userId;
+
+		query.equalTo('userId', trainee);
+		query.include('userId');
+		query.include('categoryId');
+		query.count().then((result) => res.json(result)).catch((error) => res.json(error));
+	}
+
 	static async updateQuiz(req, res) {
 		const Quiz = Parse.Object.extend('Quiz');
 		const QuizCategory = Parse.Object.extend('QuizCategory');
