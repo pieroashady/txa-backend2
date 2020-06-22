@@ -32,7 +32,7 @@ class CategoryController {
 		start.startOf('day');
 		console.log(start);
 		// from the start of the date (inclusive)
-		query.greaterThanOrEqualTo('schedule', new Date());
+		query.greaterThanOrEqualTo('schedule', start.toDate());
 
 		// var finish = new moment(start);
 		// finish.add(1, 'day');
