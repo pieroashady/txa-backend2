@@ -35,7 +35,16 @@ class AdminController {
 
 	static async user(req, res) {
 		const sessionToken = req.body.token;
-		const user = await Parse.User.become(sessionToken);
+		Parse.User
+			.become(sessionToken)
+			.then((x) => {
+				console.log(x);
+				res.json(x);
+			})
+			.catch((error) => {
+				console.log(error);
+				res.json(error);
+			});
 
 		if (user) {
 			return res.send(user);
