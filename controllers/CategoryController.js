@@ -40,7 +40,7 @@ class CategoryController {
 		//query.lessThan('createdAt', finish.toDate());
 		query.containedIn('batch', [ batch ]);
 		query
-			.find()
+			.count()
 			.then(function(results) {
 				res.json(results);
 			})
