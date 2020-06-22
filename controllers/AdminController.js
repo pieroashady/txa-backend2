@@ -45,10 +45,6 @@ class AdminController {
 				console.log(error);
 				res.json(error);
 			});
-
-		if (user) {
-			return res.send(user);
-		}
 	}
 
 	static joinChatbot(req, res) {
