@@ -134,6 +134,29 @@ class ScoreController {
 		query.count().then((result) => res.json(result)).catch((error) => res.json(error));
 	}
 
+	static async checkScore(req, res) {
+		const Quiz = Parse.Object.extend('Score');
+		const user = new Parse.User();
+		const QuizCategory = Parse.Object.extend('QuizCategory');
+		const category = new QuizCategory();
+		const query = new Parse.Query(Quiz);
+
+		const categoryId = req.body.categoryId;
+		const userId = req.body.userId;
+		user.id = userId;
+		category.id = categoryId;
+
+		query.equalTo('userId', user);
+		query.equalTo('categoryId', category);
+		query
+			.first()
+			.then((x) => {
+				if (_.isEmpty(x)) return res.json({ status: 0, message: 'no data' });
+				return res.json({ status: 1, message: 'ada data' });
+			})
+			.catch((err) => res.json(err.message));
+	}
+
 	static async updateQuiz(req, res) {
 		const Quiz = Parse.Object.extend('Quiz');
 		const QuizCategory = Parse.Object.extend('QuizCategory');

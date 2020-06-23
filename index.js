@@ -32,6 +32,7 @@ app.post('/api/score/total', ScoreController.totalQuiz);
 app.post('/api/score/id', ScoreController.getScoreById);
 app.post('/api/score/add', ScoreController.addScore);
 app.get('/api/score/percentage', ScoreController.scorePercentage);
+app.post('/api/score/check', ScoreController.checkScore);
 
 app.post('/api/login', AdminController.login);
 app.post('/api/logout', AdminController.logout);
