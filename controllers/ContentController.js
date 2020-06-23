@@ -23,6 +23,18 @@ class ContentController {
 		query.find().then((results) => res.json(results)).catch((error) => res.json(error));
 	}
 
+	static async getContentz(req, res) {
+		const Content = Parse.Object.extend('BootcampEvent');
+		const query = new Parse.Query(Content);
+		const page = req.query.page || 1;
+		const resultPerpage = 3;
+
+		query.equalTo('status', 1);
+		query.limit(resultPerpage);
+		query.skip(resultPerpage * page - resultPerpage);
+		query.find().then((results) => res.json(results)).catch((error) => res.json(error));
+	}
+
 	static async getTotalContent(req, res) {
 		const Content = Parse.Object.extend('BootcampEvent');
 		const query = new Parse.Query(Content);
@@ -75,9 +87,18 @@ class ContentController {
 
 	static async getContentByBatch(req, res) {
 		const Content = Parse.Object.extend('BootcampEvent');
+		const Batch = Parse.Object.extend('BootcampEvent');
+		const batch = new Batch();
 		const query = new Parse.Query(Content);
+		const page = req.query.page || 1;
+		const batchz = req.query.batch;
+		const resultPerpage = 10;
 
-		query.containedIn('batch', parseInt(req.body.contentType));
+		query.containedIn('batch', [ parseInt(batchz) ]);
+		query.equalTo('status', 1);
+		query.descending('schedule');
+		query.limit(resultPerpage);
+		// query.skip(resultPerpage * page - resultPerpage);
 		query
 			.find()
 			.then((x) => {

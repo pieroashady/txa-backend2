@@ -27,6 +27,10 @@ app.get('/hello', (req, res) => {
 	res.send('hello world');
 });
 
+app.get('/hellox', (req, res) => {
+	res.send(req.query.id);
+});
+
 app.post('/api/score/user', ScoreController.getScoreByUser);
 app.post('/api/score/total', ScoreController.totalQuiz);
 app.post('/api/score/id', ScoreController.getScoreById);
@@ -42,8 +46,10 @@ app.post('/api/join', AdminController.joinChatbot);
 app.get('/api/content/list', ContentController.getContent);
 app.post('/api/content/id', ContentController.getContentById);
 app.get('/api/content/upcoming', ContentController.getContentTomorrow);
+app.get('/api/content/batch', ContentController.getContentByBatch);
 app.post('/api/content/delete', ContentController.deleteContent);
 app.get('/api/content/total', ContentController.getTotalContent);
+app.get('/api/content/pages', ContentController.getContentz);
 
 app.get('/api/quiz/list', QuizController.getQuizList);
 app.get('/api/quiz/batch', QuizController.getQuizByBatch);
