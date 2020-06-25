@@ -100,7 +100,7 @@ class CategoryController {
 		const quizCategory = req.body.quizCategory;
 		const desc = req.body.desc;
 		const test = moment(req.body.schedule).toDate();
-		const schedule = moment(req.body.schedule).toDate();
+		const schedule = req.body.schedule;
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
 		const batch = req.body.batch;
