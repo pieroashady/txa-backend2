@@ -120,6 +120,21 @@ class ScoreController {
 		query.find().then((result) => res.json(result)).catch((error) => res.json(error));
 	}
 
+	static async getScorePerWeek(req, res) {
+		const Score = Parse.Object.extend('Score');
+		const trainee = new Parse.User();
+		const query = new Parse.Query(Score);
+
+		const startOfWeek = moment().startOf('isoWeek').toDate();
+		const endOfWeek = moment().endOf('isoWeek').toDate();
+
+		query.greaterThanOrEqualTo('createdAt', startOfWeek);
+		query.lessThanOrEqualTo('createdAt', endOfWeek);
+		query.include('userId');
+		query.include('categoryId');
+		query.find().then((x) => res.json(x)).catch((error) => res.json(error));
+	}
+
 	static async totalQuiz(req, res) {
 		const Score = Parse.Object.extend('Score');
 		const trainee = new Parse.User();

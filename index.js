@@ -37,8 +37,10 @@ app.post('/api/score/id', ScoreController.getScoreById);
 app.post('/api/score/add', ScoreController.addScore);
 app.get('/api/score/percentage', ScoreController.scorePercentage);
 app.post('/api/score/check', ScoreController.checkScore);
+app.get('/api/score/week', ScoreController.getScorePerWeek);
 
 app.post('/api/login', AdminController.login);
+app.post('/api/admin/login', AdminController.loginAdmin);
 app.post('/api/logout', AdminController.logout);
 app.post('/api/user', AdminController.user);
 app.post('/api/join', AdminController.joinChatbot);

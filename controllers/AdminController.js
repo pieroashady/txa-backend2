@@ -24,6 +24,29 @@ class AdminController {
 		}
 	}
 
+	static async loginAdmin(req, res) {
+		const User = new Parse.User();
+		const query = new Parse.Query(User);
+
+		const username = req.body.username;
+		const password = req.body.password;
+
+		Parse.User
+			.logIn(username, password)
+			.then((user) => {
+				Parse.User
+					.currentAsync()
+					.then((userData) => {
+						if (userData.get('role') !== 'admin') {
+							return res.json({ status: 0, message: 'not Admin' });
+						}
+						return res.json(userData);
+					})
+					.catch((error) => res.json(error));
+			})
+			.catch((error) => res.json(error));
+	}
+
 	static async logout(req, res) {
 		Parse.User
 			.logOut()
