@@ -31,7 +31,7 @@ class TraineeController {
 
 		query.equalTo('role', 'trainee');
 		query.equalTo('batch', parseInt(req.body.batch));
-		console.log(req.body.batch);
+		//console.log(req.body.batch);
 		query.ascending('batch');
 		query.ascending('fullname');
 
