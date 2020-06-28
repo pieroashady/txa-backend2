@@ -14,6 +14,7 @@ class AdminController {
 
 		try {
 			const user = await Parse.User.logIn(username, password);
+			console.log(user);
 			if (user) {
 				const userData = await Parse.User.currentAsync();
 				console.log('someone logged in');

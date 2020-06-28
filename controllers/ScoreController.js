@@ -114,6 +114,7 @@ class ScoreController {
 		const userId = req.body.userId;
 		trainee.id = userId;
 
+		query.descending('createdAt');
 		query.equalTo('userId', trainee);
 		query.include('userId');
 		query.include('categoryId');
