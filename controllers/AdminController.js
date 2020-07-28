@@ -21,6 +21,7 @@ class AdminController {
 				return res.send(userData);
 			}
 		} catch (error) {
+			console.log(error.message);
 			return res.send(error);
 		}
 	}
