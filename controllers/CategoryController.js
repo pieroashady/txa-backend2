@@ -105,6 +105,8 @@ class CategoryController {
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
 		const batch = req.body.batch;
+		const kodeCategory = req.body.kodeCategory;
+
 		console.log('before', req.body.schedule);
 		console.log('after', test.toISOString());
 
@@ -115,6 +117,7 @@ class CategoryController {
 		category.set('timeInMinutes', timeInMinutes);
 		category.set('batch', batch);
 		category.set('status', 1);
+		category.set('kodeCategory', kodeCategory);
 		category
 			.save()
 			.then((x) => res.json({ status: 1, message: 'Add Category Success', x }))
@@ -146,6 +149,7 @@ class CategoryController {
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
 		const batch = req.body.batch;
+		const kodeCategory = req.body.kodeCategory;
 
 		query.equalTo('objectId', categoryId);
 		const result = await query.first();
