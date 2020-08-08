@@ -28,7 +28,7 @@ class TraineeController {
 
 	static async getTraineeByBatch(req, res) {
 		const query = new Parse.Query(Parse.User);
-
+		console.log('z');
 		query.equalTo('role', 'trainee');
 		query.equalTo('batch', parseInt(req.body.batch));
 		//console.log(req.body.batch);
