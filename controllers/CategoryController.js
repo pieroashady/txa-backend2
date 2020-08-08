@@ -65,6 +65,7 @@ class CategoryController {
 		// finish.add(1, 'day');
 		// till the start of tomorrow (non-inclusive)
 		//query.lessThan('createdAt', finish.toDate());
+		query.equalTo('status', 1);
 		query.containedIn('batch', [ batch ]);
 		query
 			.find()
