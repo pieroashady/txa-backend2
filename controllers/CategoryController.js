@@ -104,7 +104,7 @@ class CategoryController {
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
 		const batch = req.body.batch;
-		console.log('before', req.body.schedule);
+		console.log('before', req.body.schedule.toDate());
 		console.log('after', test.toISOString());
 
 		category.set('category', quizCategory);

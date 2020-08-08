@@ -16,9 +16,32 @@
 
 // getResult(answer, answerKey);
 
-function getDate() {
-	const moment = require('moment');
-	console.log(moment('2020-06-08T17:49:30.064Z').format('DD/MM/YYYY [at] H:mm:ss'));
-}
+// function getDate() {
+// 	const moment = require('moment');
+// 	console.log(moment('2020-06-08T17:49:30.064Z').format('DD/MM/YYYY [at] H:mm:ss'));
+// }
 
-getDate();
+// getDate();
+
+function findGreatestFactor(numberList) {}
+
+const numberList1 = [ 1, 3, 4 ];
+const numberList2 = [ 1, 1, 3 ];
+
+let result = [];
+
+// numberList1.map((x, i) => {
+// 	let index = 0;
+// 	let numberFrom = numberList1[index];
+// 	if (index > numberList1.length) {
+// 		return console.log(result.length);
+// 	}
+
+// 	let sum = numberFrom + numberList1[i + 1];
+// 	result.push(sum);
+// 	index++;
+// });
+
+for (var i = 1; i <= 4; i++) {
+	console.log('*');
+}
