@@ -18,6 +18,40 @@ class CategoryController {
 		query.find().then((results) => res.json(results)).catch((error) => res.json(error));
 	}
 
+	static async handleFilter(req, res) {
+		const Category = Parse.Object.extend('QuizCategory');
+		const query = new Parse.Query(Category);
+
+		switch (req.body.searchBy) {
+			case 'Kode':
+				query.equalTo('status', 1);
+				query.matches('kodeCategory', req.body.searchValue, 'i');
+				query
+					.find()
+					.then((x) => {
+						res.json(x);
+					})
+					.catch((err) => {
+						res.json(err);
+					});
+				break;
+			case 'Nama Kategori':
+				query.equalTo('status', 1);
+				query.matches('category', req.body.searchValue, 'i');
+				query
+					.find()
+					.then((x) => {
+						res.json(x);
+					})
+					.catch((err) => {
+						res.json(err);
+					});
+				break;
+			default:
+				break;
+		}
+	}
+
 	static async getCategoryByBatch(req, res) {
 		const Category = Parse.Object.extend('QuizCategory');
 		//const query = new Parse.Query(Category);

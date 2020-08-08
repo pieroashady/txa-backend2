@@ -66,6 +66,7 @@ app.post('/api/category/list-batch', CategoryController.getListCategory);
 app.post('/api/category/batch', CategoryController.getCategoryByBatch);
 app.post('/api/category/id', CategoryController.getCategoryById);
 app.post('/api/category/add', CategoryController.addCategory);
+app.post('/api/category/filter', CategoryController.handleFilter);
 app.post('/api/category/update', CategoryController.updateCategory);
 app.post('/api/category/delete', CategoryController.deleteCategory);
 app.get('/api/category/total', CategoryController.getTotalCategory);
