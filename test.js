@@ -25,23 +25,26 @@
 
 function findGreatestFactor(numberList) {}
 
-const numberList1 = [ 1, 3, 4 ];
-const numberList2 = [ 1, 1, 3 ];
+// const numberList1 = [ 1, 3, 4 ];
+// const numberList2 = [ 1, 1, 3 ];
 
-let result = [];
+// let result = [];
 
-// numberList1.map((x, i) => {
-// 	let index = 0;
-// 	let numberFrom = numberList1[index];
-// 	if (index > numberList1.length) {
-// 		return console.log(result.length);
-// 	}
+// // numberList1.map((x, i) => {
+// // 	let index = 0;
+// // 	let numberFrom = numberList1[index];
+// // 	if (index > numberList1.length) {
+// // 		return console.log(result.length);
+// // 	}
 
-// 	let sum = numberFrom + numberList1[i + 1];
-// 	result.push(sum);
-// 	index++;
-// });
+// // 	let sum = numberFrom + numberList1[i + 1];
+// // 	result.push(sum);
+// // 	index++;
+// // });
 
-for (var i = 1; i <= 4; i++) {
-	console.log('*');
-}
+// for (var i = 1; i <= 4; i++) {
+// 	console.log('*');
+// }
+
+var moment = require('moment-timezone');
+console.log(moment().tz('Asia/Jakarta').format());

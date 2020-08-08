@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Parse = require('parse/node');
 const _ = require('lodash/lang');
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 Parse.initialize(process.env.APP_ID, process.env.JAVASCRIPT_KEY, process.env.MASTER_KEY);
 Parse.serverURL = 'https://parseapi.back4app.com/';
@@ -15,8 +15,6 @@ class CategoryController {
 		const resultPerpage = 10;
 
 		query.equalTo('status', 1);
-		query.limit(resultPerpage);
-		query.skip(resultPerpage * page - resultPerpage);
 		query.find().then((results) => res.json(results)).catch((error) => res.json(error));
 	}
 
@@ -99,7 +97,7 @@ class CategoryController {
 
 		const quizCategory = req.body.quizCategory;
 		const desc = req.body.desc;
-		const test = moment(req.body.schedule).toDate();
+		const test = moment(req.body.schedule).tz('Asia/Jakarta').toDate();
 		const schedule = req.body.schedule;
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
