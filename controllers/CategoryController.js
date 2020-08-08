@@ -53,7 +53,9 @@ class CategoryController {
 		var d = new Date();
 		var query = new Parse.Query(Category);
 
-		var start = new moment(d);
+		var moment = require('moment-timezone');
+		var dx = moment().tz('Asia/Jakarta');
+		var start = moment(dx);
 		start.startOf('day');
 		console.log(start);
 		// from the start of the date (inclusive)

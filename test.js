@@ -47,4 +47,6 @@ function findGreatestFactor(numberList) {}
 // }
 
 var moment = require('moment-timezone');
-console.log(moment().tz('Asia/Jakarta').format());
+var dx = moment('Aug 08 2020 00:00:00 GMT').tz('Asia/Jakarta').toDate();
+var start = moment(dx).startOf('day').toDate();
+console.log(start);
