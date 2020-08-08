@@ -97,7 +97,6 @@ class ContentController {
 		query.containedIn('batch', [ parseInt(batchz) ]);
 		query.equalTo('status', 1);
 		query.descending('schedule');
-		query.limit(resultPerpage);
 		// query.skip(resultPerpage * page - resultPerpage);
 		query
 			.find()
