@@ -100,16 +100,16 @@ class CategoryController {
 		const quizCategory = req.body.quizCategory;
 		const desc = req.body.desc;
 		const test = moment(req.body.schedule).toDate();
-		const schedule = req.body.schedule.toDate();
+		const schedule = req.body.schedule;
 		const subtitle = req.body.subtitle;
 		const timeInMinutes = req.body.timeInMinutes;
 		const batch = req.body.batch;
-		console.log('before', req.body.schedule.toDate());
+		console.log('before', req.body.schedule);
 		console.log('after', test.toISOString());
 
 		category.set('category', quizCategory);
 		category.set('description', desc);
-		category.set('schedule', schedule);
+		category.set('schedule', test);
 		category.set('subtitle', subtitle);
 		category.set('timeInMinutes', timeInMinutes);
 		category.set('batch', batch);
