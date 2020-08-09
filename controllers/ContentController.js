@@ -18,8 +18,6 @@ class ContentController {
 		const resultPerpage = 8;
 
 		query.equalTo('status', 1);
-		query.limit(resultPerpage);
-		query.skip(resultPerpage * page - resultPerpage);
 		query.find().then((results) => res.json(results)).catch((error) => res.json(error));
 	}
 
